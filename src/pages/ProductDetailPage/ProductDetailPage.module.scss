@@ -1,0 +1,149 @@
+@use "../../styles/variables" as *;
+
+.page {
+  @include container;
+  padding-top: 24px;
+  padding-bottom: 64px;
+}
+
+.back {
+  display: inline-block;
+  font-size: 13px;
+  color: $ink-soft;
+  margin-bottom: 20px;
+
+  &:hover {
+    color: $ink;
+  }
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand {
+  margin: 0 0 4px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: $ink-faint;
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 12px;
+  line-height: 1.25;
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.price {
+  font-family: $font-display;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.originalPrice {
+  font-size: 15px;
+  color: $ink-faint;
+  text-decoration: line-through;
+}
+
+.field {
+  padding: 18px 0;
+  @include hairline(bottom, $line);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+}
+
+.fieldLabel {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: $ink-soft;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+
+  .mono {
+    color: $ink-faint;
+    text-transform: none;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+}
+
+.sizeRow {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.addButton {
+  @include button-reset;
+  margin-top: 24px;
+  padding: 15px 0;
+  background: $ink;
+  color: $paper;
+  text-align: center;
+  border-radius: $radius-sm;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  transition: background 0.15s ease;
+
+  &:hover:not(:disabled) {
+    background: $accent-deep;
+  }
+
+  &:disabled {
+    background: $line-strong;
+    cursor: not-allowed;
+  }
+}
+
+.addError {
+  margin: 12px 0 0;
+  font-size: 13px;
+  color: $danger;
+
+  button {
+    @include button-reset;
+    text-decoration: underline;
+    color: $danger;
+    font-weight: 600;
+    margin-left: 4px;
+  }
+}
+
+.description {
+  margin-top: 28px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: $ink-soft;
+}

@@ -1,0 +1,78 @@
+$ink: #16181c;
+$ink-soft: #4a4e57;
+$ink-faint: #8a8d94;
+
+$paper: #f5f4f0;
+$paper-alt: #ece9e2;
+$paper-raised: #ffffff;
+
+$accent: #2f6f4e; 
+$accent-deep: #1f4b34;
+$accent-tint: #e3ede7;
+
+$gold: #c98a2c; 
+$gold-tint: #f5e9d6;
+
+$danger: #b23a2e;
+$danger-tint: #f5e2df;
+
+$line: #d8d5cc;
+$line-strong: #b9b5aa;
+
+
+$font-display: "Space Grotesk", "Arial Narrow", sans-serif;
+$font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+$font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+
+
+$breakpoint-mobile: 767px;
+$max-width: 1240px;
+$radius-sm: 3px;
+$radius-md: 6px;
+
+
+$shadow-card: 0 1px 2px rgba(22, 24, 28, 0.06), 0 8px 20px -12px rgba(22, 24, 28, 0.18);
+$shadow-drawer: -12px 0 32px -8px rgba(22, 24, 28, 0.28);
+
+
+@mixin mobile {
+  @media (max-width: #{$breakpoint-mobile}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$breakpoint-mobile + 1px}) {
+    @content;
+  }
+}
+
+@mixin hairline($side: bottom, $color: $line) {
+  border-#{$side}: 1px solid $color;
+}
+
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid $accent;
+    outline-offset: 2px;
+  }
+}
+
+@mixin button-reset {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+@mixin container {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 24px;
+
+  @include mobile {
+    padding: 0 16px;
+  }
+}

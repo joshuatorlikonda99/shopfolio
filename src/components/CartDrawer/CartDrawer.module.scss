@@ -1,0 +1,190 @@
+@use "../../styles/variables" as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba($ink, 0.35);
+  z-index: 40;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.drawer {
+  width: 400px;
+  max-width: 100%;
+  height: 100%;
+  background: $paper-raised;
+  box-shadow: $shadow-drawer;
+  display: flex;
+  flex-direction: column;
+  animation: slideIn 0.22s ease-out;
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(24px);
+    opacity: 0.6;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 20px 16px;
+  @include hairline(bottom, $line);
+
+  h2 {
+    font-size: 18px;
+  }
+}
+
+.close {
+  @include button-reset;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: $ink-soft;
+
+  &:hover {
+    background: $paper-alt;
+  }
+}
+
+.empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: $ink-faint;
+}
+
+.browseLink {
+  color: $accent-deep;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.lines {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.line {
+  display: flex;
+  gap: 12px;
+  padding: 16px 20px;
+  @include hairline(bottom, $line);
+}
+
+.thumb {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  background: $paper-alt;
+  border-radius: $radius-sm;
+  padding: 6px;
+  flex-shrink: 0;
+}
+
+.lineInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.lineTitle {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.35;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.lineVariant {
+  margin: 3px 0 0;
+  font-size: 11px;
+  color: $ink-faint;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.linePrice {
+  margin: 4px 0 8px;
+  font-family: $font-display;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.lineControls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.remove {
+  @include button-reset;
+  font-size: 11px;
+  color: $danger;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.summary {
+  padding: 16px 20px 20px;
+  border-top: 1px dashed $line-strong;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: $ink-soft;
+  padding: 4px 0;
+}
+
+.total {
+  font-size: 16px;
+  font-weight: 600;
+  color: $ink;
+  font-family: $font-display;
+  padding-top: 8px;
+}
+
+.checkout {
+  @include button-reset;
+  width: 100%;
+  margin-top: 14px;
+  padding: 13px 0;
+  background: $ink;
+  color: $paper;
+  text-align: center;
+  border-radius: $radius-sm;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+
+  &:hover {
+    background: $accent-deep;
+  }
+}

@@ -1,0 +1,51 @@
+@use "../../styles/variables" as *;
+
+.meter {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.ticks {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.tick {
+  width: 5px;
+  height: 10px;
+  background: $line-strong;
+  border-radius: 1px;
+}
+
+.label {
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  color: $ink-faint;
+}
+
+.in-stock {
+  .tick.filled {
+    background: $accent;
+  }
+  .label {
+    color: $accent-deep;
+  }
+}
+
+.low-stock {
+  .tick.filled {
+    background: $gold;
+  }
+  .label {
+    color: $gold;
+  }
+}
+
+.sold-out {
+  .label {
+    color: $danger;
+    text-decoration: line-through;
+    text-decoration-color: rgba($danger, 0.4);
+  }
+}

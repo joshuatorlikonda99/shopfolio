@@ -1,0 +1,25 @@
+@use "../../styles/variables" as *;
+
+.row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.swatch {
+  @include button-reset;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid $paper-raised;
+  box-shadow: 0 0 0 1px $line-strong;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+
+  &:hover {
+    transform: scale(1.08);
+  }
+
+  &.selected {
+    box-shadow: 0 0 0 2px $paper-raised, 0 0 0 4px $ink;
+  }
+}

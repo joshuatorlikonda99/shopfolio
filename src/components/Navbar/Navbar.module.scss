@@ -1,0 +1,56 @@
+@use "../../styles/variables" as *;
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: $paper;
+  @include hairline(bottom, $line);
+}
+
+.inner {
+  @include container;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-family: $font-display;
+  font-weight: 700;
+  font-size: 19px;
+  letter-spacing: -0.01em;
+  color: $ink;
+}
+
+.cartButton {
+  @include button-reset;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $ink;
+  border-radius: 50%;
+
+  &:hover {
+    background: $paper-alt;
+  }
+}
+
+.badge {
+  position: absolute;
+  top: 2px;
+  right: 0;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 3px;
+  border-radius: 8px;
+  background: $accent;
+  color: $paper;
+  font-size: 10px;
+  line-height: 16px;
+  text-align: center;
+}
